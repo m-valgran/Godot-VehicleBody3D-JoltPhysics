@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5asra27rt6r5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yh3o"]
+albedo_color = Color(0.35, 0.1925, 0.1925, 1)
+metallic_specular = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mg8dc"]
+material = SubResource("StandardMaterial3D_5yh3o")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.75
+radial_segments = 8
+rings = 0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5yh3o"]
+points = PackedVector3Array(-0.25, -0.375, 0, -0.176782, -0.375, -0.176782, -0.176782, -0.375, 0.176733, -0.25, 0.375, 0, -0.176782, 0.375, -0.176782, 0, -0.375, -0.25, 0, -0.375, 0.25, -0.176782, 0.375, 0.176733, 0, 0.375, -0.25, 0.176733, -0.375, -0.176782, 0.176733, -0.375, 0.176733, 0, 0.375, 0.25, 0.176733, 0.375, -0.176782, 0.25, -0.375, 0, 0.176733, 0.375, 0.176733, 0.25, 0.375, 0)
+
+[node name="Barrel" type="RigidBody3D"]
+mass = 15.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_mg8dc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_5yh3o")
